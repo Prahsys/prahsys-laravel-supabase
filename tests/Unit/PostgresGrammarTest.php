@@ -4,7 +4,8 @@ use Illuminate\Database\Query\Builder;
 use Prahsys\Supabase\Database\Query\Grammars\PostgresGrammar;
 
 it('casts UUID columns in where clauses', function () {
-    $grammar = new PostgresGrammar;
+    $connection = app('db')->connection();
+    $grammar = new PostgresGrammar($connection);
 
     // Create a query builder with a where clause on a UUID column
     $query = new Builder(app('db')->connection());
@@ -18,7 +19,8 @@ it('casts UUID columns in where clauses', function () {
 });
 
 it('casts UUID columns in where-in clauses', function () {
-    $grammar = new PostgresGrammar;
+    $connection = app('db')->connection();
+    $grammar = new PostgresGrammar($connection);
 
     // Create a query builder with a whereIn clause on a UUID column
     $query = new Builder(app('db')->connection());
@@ -32,7 +34,8 @@ it('casts UUID columns in where-in clauses', function () {
 });
 
 it('casts UUID columns in joins', function () {
-    $grammar = new PostgresGrammar;
+    $connection = app('db')->connection();
+    $grammar = new PostgresGrammar($connection);
 
     // Create a query builder with a join on UUID columns
     $query = new Builder(app('db')->connection());
