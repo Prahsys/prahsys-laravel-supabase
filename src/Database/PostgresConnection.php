@@ -124,6 +124,6 @@ class PostgresConnection extends BaseConnection
      */
     protected function getDefaultQueryGrammar()
     {
-        return $this->withTablePrefix(new PostgresGrammar);
+        return $this->withTablePrefix(new PostgresGrammar($this));
     }
 }
